@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Financial Status Calculator</title>
+  <style>
+    img {
+      width: 500px;
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+<h1>Financial Status Calculator</h1>
+
+<form action="/calculateFinancialStatus" method="POST">
+  <label for="assets">Assets:</label>
+  <input type="text" name="assets" id="assets"><br><br>
+
+  <label for="liabilities">Liabilities:</label>
+  <input type="text" name="liabilities" id="liabilities"><br><br>
+
+  <label for="income">Income:</label>
+  <input type="text" name="income" id="income"><br><br>
+
+  <label for="expenses">Expenses:</label>
+  <input type="text" name="expenses" id="expenses"><br><br>
+
+  <input type="submit" value="Calculate">
+</form>
+
+<div class="container">
+  <img src="${imageUrl}" alt="Financial Image">
+  <p>${message}</p>
+</div>
+
+</body>
+</html>
