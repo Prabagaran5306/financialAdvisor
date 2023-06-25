@@ -1,0 +1,48 @@
+//created on: 17-June-2023
+package rules
+
+//list any import classes here.
+import com.financialhealth.financialhealth.payload.drools.FinancialPercentageCalculator;
+
+
+//declare any global variables here
+global com.financialhealth.financialhealth.payload.drools.FinancialPercentageCalculator financialpercentagecalcalculator;
+
+dialect "java"
+
+rule "Financial Service Rule 1"
+salience 1
+    when
+    FinancialPercentageCalculator(expenses > income)
+    
+        /*$n1:financialpercentagecalcalculator.getExpenses()
+        $n2:financialpercentagecalcalculator.getIncome()
+        $n1>$n2*/
+    then
+        financialpercentagecalcalculator.setFinancialPercentage(1);
+end
+
+rule "Financial Service Rule 2"
+salience 2
+    when
+        FinancialPercentageCalculator(liabilities > assets)
+    then
+        financialpercentagecalcalculator.setFinancialPercentage(2);
+end
+
+rule "Financial Service Rule 3"
+salience 3
+    when
+        FinancialPercentageCalculator((liabilities + income) > assets)
+    then
+        financialpercentagecalcalculator.setFinancialPercentage(3);
+end
+
+rule "Financial Service Rule 4"
+salience 4
+    when
+        FinancialPercentageCalculator(income > (expenses + liabilities + assets))
+    then
+        financialpercentagecalcalculator.setFinancialPercentage(4);
+end
+
